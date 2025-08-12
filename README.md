@@ -15,3 +15,9 @@ Stimulate your brain with a fun and challenging word puzzle! Unscramble the lett
 Unleash your creativity and paint your stress away! It provides you with a canvas to create beautiful artwork and experiment with colors. So just relax and create.
 ### 🧘 Meditation
 Follow simple, relaxing yoga poses designed to reduce stress and improve your overall well-being. These asanas will help you relax and rejuvenate.
+
+## How it was built
+This app was built in Android Studio 4.2 using java language. Android Studio IDE is an application that can be used to build mobile apps using java.
+
+## What makes it special
+The things that makes it special are the above features like music and painting. The peaceful and relaxing music makes the user relax and reduce stress.
