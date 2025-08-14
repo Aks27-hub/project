@@ -3,6 +3,7 @@ package com.example.project1;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -44,9 +45,11 @@ public class MainActivity3 extends AppCompatActivity {
         @Override
         public void run() {
             String randomWord = getUniqueWord();
-            if (randomWord.isEmpty()) {
+            if (randomWord.equals("")) {
                 Toast.makeText(MainActivity3.this, "All Done!!", Toast.LENGTH_SHORT).show();
-                return;
+                Intent intent = new Intent(MainActivity3.this, MainActivity2.class);
+                startActivity(intent);
+
             }
             txtWord.setText(randomWord);
             handler.postDelayed(this, DELAY_MS); // Schedule the next update
@@ -90,10 +93,14 @@ public class MainActivity3 extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if (start_flag==1) {
-                        v.setBackgroundColor(ContextCompat.getColor(MainActivity3.this, android.R.color.holo_green_light));
-                        v.setEnabled(false);
-                        marked[finalRow][finalCol] = true;
-                        checkForLine();
+                        if (button.getText().equals(txtWord.getText())) {
+                            v.setBackgroundColor(ContextCompat.getColor(MainActivity3.this, android.R.color.holo_green_light));
+                            v.setEnabled(false);
+                            marked[finalRow][finalCol] = true;
+                            checkForLine();
+                        }
+                        else Toast.makeText(MainActivity3.this, "Please SELECT THE CORRECT phrase", Toast.LENGTH_SHORT).show();
+
                     } else {
                         Toast.makeText(MainActivity3.this, "Please click \"START\" first", Toast.LENGTH_SHORT).show();
                     }
