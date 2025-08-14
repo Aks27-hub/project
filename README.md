@@ -21,3 +21,6 @@ This app was built in Android Studio 4.2 using java language. Android Studio IDE
 
 ## What makes it special
 The things that makes it special are the above features like music and painting. The peaceful and relaxing music makes the user relax and reduce stress.
+
+## How to download it
+You can download it from the project releases in the form of apk.
