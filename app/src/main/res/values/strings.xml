@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Project1</string>
+    <!-- to toggle the open close button of the navigation drawer -->
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="back_img_button">Move Backward 5 seconds</string>
+    <string name="pause_img_button">Pause</string>
+    <string name="fwd_img_button">Move Forward 5 seconds</string>
+    <string name="play_img_button">Play</string>
+    <string name="meditation">Meditate</string>
+    <string name="mdt_msg">Practicing these asanas everyday helps you become calm</string>
+    <string-array name="music_name">
+        <item>music_track1</item>
+        <item>music_track2</item>
+        <item>music_track3</item>
+        <item>music_track4</item>
+        <item>music_track5</item>
+    </string-array>
+</resources>
