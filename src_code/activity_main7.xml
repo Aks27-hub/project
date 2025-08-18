@@ -32,12 +32,59 @@
             android:orientation="vertical"
             android:gravity="center">
 
-            <ImageView
+            <com.github.chrisbanes.photoview.PhotoView
                 android:id="@+id/anu_vil"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
                 android:src="@drawable/anulom_vilom"
                 android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/mdt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="अनुलोम विलोम "
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="35dp"/>
+
+            <com.github.chrisbanes.photoview.PhotoView
+                android:id="@+id/bhst"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:src="@drawable/bhastrika"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/mdt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="भस्त्रिका"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="35dp"/>
+
+            <com.github.chrisbanes.photoview.PhotoView
+                android:id="@+id/kpl"
+                android:layout_width="350dp"
+                android:layout_height="350dp"
+                android:src="@drawable/_kapalbhati"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/mdt3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="कपालभाति"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="35dp"/>
         </LinearLayout>
     </ScrollView>
 

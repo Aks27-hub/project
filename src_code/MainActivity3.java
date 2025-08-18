@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -24,6 +25,13 @@ public class MainActivity3 extends AppCompatActivity {
 
     Button start;
     private static final String[] WORDS = {
+            "Gardening", "Go on walk", "Spend time with nature", "Learn something new",
+            "Be Happy", "Talk to friend", "Do favourite activity", "Listen to music", "Relax",
+            "Read book", "Meditate", "Eat favourite food", "Remember Good memories",
+            "Spend time with family", "Help others when need", "Reduce screen time",
+            "Do deep breathing"
+    };
+    private static final String[] gameWORDS = {
             "Gardening", "Go on walk", "Spend time with nature", " ", "Learn something new",
             "Be Happy", "Talk to friend", "Do favourite activity", "Listen to music", "Relax",
             "Read book", "Meditate", "Eat favourite food", " ", "Remember Good memories",
@@ -35,20 +43,20 @@ public class MainActivity3 extends AppCompatActivity {
     private Set<String> check_lines = new HashSet<>();
 
     private static ArrayList<String> usedWords = new ArrayList<>();
-    private static ArrayList<String> passWords = new ArrayList<>();
     private TextView txtWord;
     private Handler handler = new Handler(Looper.getMainLooper());
-    private final int DELAY_MS = 4000;
+    private final int DELAY_MS = 5000;
     int start_flag = 0;
 
     private final Runnable wordUpdater = new Runnable() {
         @Override
         public void run() {
             String randomWord = getUniqueWord();
-            if (randomWord.equals("")) {
-                Toast.makeText(MainActivity3.this, "All Done!!", Toast.LENGTH_SHORT).show();
+            if (randomWord.equals("done")) {
+                Toast.makeText(MainActivity3.this, "All Done!!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity3.this, MainActivity2.class);
                 startActivity(intent);
+                return;
 
             }
             txtWord.setText(randomWord);
@@ -71,7 +79,7 @@ public class MainActivity3 extends AppCompatActivity {
             }
         });
 
-        List<String> shuffledWords = new ArrayList<>(Arrays.asList(WORDS));
+        List<String> shuffledWords = new ArrayList<>(Arrays.asList(gameWORDS));
         Collections.shuffle(shuffledWords);
 
         for (int i=3; i<=18; i++) {
@@ -84,6 +92,7 @@ public class MainActivity3 extends AppCompatActivity {
 
             buttons[index] = button;
             button.setText(shuffledWords.get(i));
+            button.setBackgroundColor(Color.parseColor("#2323FF"));
             marked[row][col] = false;
 
             int finalRow = row;
@@ -94,7 +103,7 @@ public class MainActivity3 extends AppCompatActivity {
                 public void onClick(View v) {
                     if (start_flag==1) {
                         if (button.getText().equals(txtWord.getText())) {
-                            v.setBackgroundColor(ContextCompat.getColor(MainActivity3.this, android.R.color.holo_green_light));
+                            v.setBackgroundColor(Color.parseColor("#2CFF05"));
                             v.setEnabled(false);
                             marked[finalRow][finalCol] = true;
                             checkForLine();
@@ -107,30 +116,21 @@ public class MainActivity3 extends AppCompatActivity {
                 }
             });
 
-//            final int buttonIndex = i - 3; // To ensure each button gets its own reference
-//            buttons[buttonIndex].setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    // Change the background color to green
-//                    v.setBackgroundColor(ContextCompat.getColor(MainActivity3.this, android.R.color.holo_green_light));
-//                }
-//            });
         }
 
     }
 
-
     private String getUniqueWord() {
         if (usedWords.size() == WORDS.length) {
-            usedWords.clear(); // Reset when all words are used
-            return "";
+//            usedWords.clear(); // Reset when all words are used
+            return "done";
         }
 
         Random random = new Random();
         String word;
         do {
             word = WORDS[random.nextInt(WORDS.length)];
-        } while (usedWords.contains(word));
+        } while (usedWords.contains(word) || word.trim().isEmpty());
 
         usedWords.add(word);
         return word;

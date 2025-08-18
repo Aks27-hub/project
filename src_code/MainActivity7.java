@@ -2,18 +2,13 @@ package com.example.project1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Matrix;
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
-import android.widget.ImageView;
+
+import com.github.chrisbanes.photoview.PhotoView;
 
 public class MainActivity7 extends AppCompatActivity {
 
-    private ImageView asana1;
-    private Matrix matrix = new Matrix();
-    private ScaleGestureDetector scaleGestureDetect;
-    private float scaleFact = 1.f;
+    private PhotoView asana1, asana2, asana3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,26 +16,11 @@ public class MainActivity7 extends AppCompatActivity {
         setContentView(R.layout.activity_main7);
 
         asana1 = findViewById(R.id.anu_vil);
-        asana1.setImageMatrix(matrix);
-        scaleGestureDetect = new ScaleGestureDetector(MainActivity7.this, new ScaleListener());
-    }
+        asana1.setImageResource(R.drawable.anulom_vilom);
+        asana2 = findViewById(R.id.bhst);
+        asana2.setImageResource(R.drawable.bhastrika);
+        asana3 = findViewById(R.id.kpl);
+        asana3.setImageResource(R.drawable._kapalbhati);
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        // Pass touch events to the ScaleGestureDetector
-        scaleGestureDetect.onTouchEvent(event);
-        return super.onTouchEvent(event);
-    }
-
-    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
-        @Override
-        public boolean onScale(ScaleGestureDetector detector) {
-            // Scale the image based on pinch gestures
-            scaleFact *= detector.getScaleFactor();
-            scaleFact = Math.max(0.1f, Math.min(scaleFact, 10.0f)); // Limit the zoom scale
-            matrix.setScale(scaleFact, scaleFact);
-            asana1.setImageMatrix(matrix);
-            return true;
-        }
     }
 }

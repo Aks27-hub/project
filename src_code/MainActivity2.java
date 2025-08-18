@@ -29,7 +29,6 @@ public class MainActivity2 extends AppCompatActivity {
         menu = findViewById(R.id.nav_menu);
 
         toolbar = findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
